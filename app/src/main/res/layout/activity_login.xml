@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:gravity="center|top"
+    tools:context="com.raivis.develops.lpd_personigais_budzeta_planotais.LoginActivity">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userEmail"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:hint="@string/e_pasts"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userPassword"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:inputType="textPassword"
+        android:hint="@string/parole"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ielogoties"
+        android:layout_marginTop="30dp"
+        android:background="#8bc343"
+        android:ems="8"
+        android:theme="@style/AppTheme.Button"
+        android:id="@+id/loginButton"
+        android:onClick="pressOnLogin"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/not_register_press_here"
+        android:layout_marginTop="20dp"
+        android:id="@+id/registerButton"
+        android:onClick="pressOnRegister"
+        style="?android:attr/borderlessButtonStyle"/><!-- No border! :D -->
+</LinearLayout>

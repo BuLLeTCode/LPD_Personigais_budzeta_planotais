@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.raivis.develops.lpd_personigais_budzeta_planotais">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/app_name2" />
+        <activity
+            android:name=".MainMenuActivity"
+            android:label="@string/app_name3" />
+        <activity
+            android:name=".MoneyFlowActivity"
+            android:label="@string/app_name4" />
+        <activity
+            android:name=".OutcomeTypesActivity"
+            android:label="@string/app_name5" />
+        <activity
+            android:name=".ManualOutcomeActivity"
+            android:label="@string/app_name6" />
+        />
+        <activity
+            android:name=".IncomeAddActivity"
+            android:label="@string/app_name7" />
+        <activity
+            android:name=".ViewMoneyFlowActivity"
+            android:label="@string/app_name8" />
+        <activity
+            android:name=".BudgetReviewActivity"
+            android:label="@string/app_name9" />
+    </application>
+
+</manifest>

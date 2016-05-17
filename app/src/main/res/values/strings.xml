@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Autentifikācija</string>
+    <string name="app_name2">Reģistrācija</string>
+    <string name="app_name3">Galvenā izvelne</string>
+    <string name="app_name4">Izdevuma / Ienākuma pievienošana</string>
+    <string name="app_name5">Izdevuma pievienosana</string>
+    <string name="app_name6">Manuāla izdevuma pievienošana</string>
+    <string name="app_name7">Ienākuma pievienošana</string>
+    <string name="app_name8">Ienākumi / Izdevumi</string>
+    <string name="app_name9">Budžeta pārskats</string>
+    <string name="ielogoties">Ielogoties</string>
+    <string name="e_pasts">E-pasts</string>
+    <string name="parole">Parole</string>
+    <string name="v_rds">Vārds:</string>
+    <string name="uzv_rds">Uzvārds:</string>
+    <string name="dz_diena">Dz.diena</string>
+    <string name="apstiprin_t">Apstiprināt</string>
+    <string name="not_register_press_here">Neesi reģistrējies? Spied šeit!</string>
+    <string name="nosaukums">Nosaukums</string>
+    <string name="apjoms">Apjoms</string>
+    <string name="datums">Datums</string>
+    <string name="avots">Avots</string>
+    <string name="pievienot">Pievienot</string>
+</resources>
