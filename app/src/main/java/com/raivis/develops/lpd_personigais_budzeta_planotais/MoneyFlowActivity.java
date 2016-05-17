@@ -1,7 +1,9 @@
 package com.raivis.develops.lpd_personigais_budzeta_planotais;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 public class MoneyFlowActivity extends AppCompatActivity {
@@ -13,8 +15,12 @@ public class MoneyFlowActivity extends AppCompatActivity {
     }
 
     public void pressOnOutcome(View view) {
+        Log.d("MAUKA", "POGA1");
+        startActivity(IntentGenerator.returnNewIntentForActivity(this, OutcomeTypesActivity.class));
     }
 
     public void pressOnIncome(View view) {
+        Log.d("MAUKA", "POGA2");
+        startActivity(IntentGenerator.returnNewIntentForActivity(this, IncomeAddActivity.class));
     }
 }

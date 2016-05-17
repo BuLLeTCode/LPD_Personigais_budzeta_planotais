@@ -1,6 +1,8 @@
 package com.raivis.develops.lpd_personigais_budzeta_planotais;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +20,8 @@ public class LoginActivity extends AppCompatActivity {
     //Another variables
     private int userLoginTrysLeft = 3;//After three trys disable button
 
+    SharedPreferences sharedpreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,29 @@ public class LoginActivity extends AppCompatActivity {
         userMail = (EditText) findViewById(R.id.userEmail);
         userPass = (EditText) findViewById(R.id.userPassword);
         loginButton = (Button) findViewById(R.id.loginButton);
+
+        sharedpreferences = getSharedPreferences("userSeason",
+                Context.MODE_PRIVATE);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+//        if(userMail != null){
+//            userMail.setText("");
+//            userPass.setText("");
+//        }
+
+        if(!sharedpreferences.getString("userEmail", "").equals("")) {
+                startActivity(IntentGenerator.returnNewIntentForActivity(this,
+                        MainMenuActivity.class));
+        }
+        else {
+            if(userMail != null){
+                userMail.setText("");
+                userPass.setText("");
+            }
+        }
     }
 
     //User click on register - call register activity
@@ -41,8 +68,15 @@ public class LoginActivity extends AppCompatActivity {
         if(userMail.getText().toString().equals("user@user.lv") &&
                 userPass.getText().toString().equals("pass")){
             Intent callMainMenu = new Intent(this, MainMenuActivity.class);
-            callMainMenu.putExtra("userEmail", userMail.getText().toString());//To get User name
+//            callMainMenu.putExtra("userEmail", userMail.getText().toString());//To get User name
                                                                               //after login
+
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+
+            editor.putString("userEmail", userMail.getText().toString());
+
+            editor.apply();
+
             startActivity(callMainMenu);
         }
         else

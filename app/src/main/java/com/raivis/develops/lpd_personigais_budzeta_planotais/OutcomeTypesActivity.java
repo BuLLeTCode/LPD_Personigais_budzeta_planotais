@@ -13,11 +13,15 @@ public class OutcomeTypesActivity extends AppCompatActivity {
     }
 
     public void pressOnCheck(View view) {
+//        TODO nākotnē!
     }
 
     public void pressOnBill(View view) {
+//        TODO nākotnē!
     }
 
     public void pressOnManual(View view) {
+        startActivity(IntentGenerator.returnNewIntentForActivity(this,
+                IncomeAddActivity.class));
     }
 }
