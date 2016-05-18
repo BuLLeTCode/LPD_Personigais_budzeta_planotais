@@ -22,6 +22,8 @@ public class LoginActivity extends AppCompatActivity {
 
     SharedPreferences sharedpreferences;
 
+    DBHandler db;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,8 @@ public class LoginActivity extends AppCompatActivity {
 
         sharedpreferences = getSharedPreferences("userSeason",
                 Context.MODE_PRIVATE);
+
+        db = new DBHandler(this);
     }
 
     @Override
@@ -65,8 +69,9 @@ public class LoginActivity extends AppCompatActivity {
     //User try to login
     public void pressOnLogin(View view) {
         //TODO make with db - for now hardcode login! :D
-        if(userMail.getText().toString().equals("user@user.lv") &&
-                userPass.getText().toString().equals("pass")){
+//        if(userMail.getText().toString().equals("user@user.lv") &&
+//                userPass.getText().toString().equals("pass")){
+        if(db.verification(userMail.getText().toString(), userPass.getText().toString())){
             Intent callMainMenu = new Intent(this, MainMenuActivity.class);
 //            callMainMenu.putExtra("userEmail", userMail.getText().toString());//To get User name
                                                                               //after login

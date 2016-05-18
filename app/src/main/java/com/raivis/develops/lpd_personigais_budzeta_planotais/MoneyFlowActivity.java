@@ -15,12 +15,10 @@ public class MoneyFlowActivity extends AppCompatActivity {
     }
 
     public void pressOnOutcome(View view) {
-        Log.d("MAUKA", "POGA1");
         startActivity(IntentGenerator.returnNewIntentForActivity(this, OutcomeTypesActivity.class));
     }
 
     public void pressOnIncome(View view) {
-        Log.d("MAUKA", "POGA2");
-        startActivity(IntentGenerator.returnNewIntentForActivity(this, IncomeAddActivity.class));
+        Log.d("MAUKA", "POGA2");        startActivity(IntentGenerator.returnNewIntentForActivity(this, IncomeAddActivity.class));
     }
 }
