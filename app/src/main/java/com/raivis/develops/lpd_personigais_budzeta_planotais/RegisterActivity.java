@@ -35,16 +35,24 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void pressOnConfirmRegistration(View view) {
 //        TODO Check if user have fill all fields
-        if(db.addNewUser(new User(0, newUserFirstName.getText().toString(),
+        boolean result = db.addNewUser(new User(0, newUserFirstName.getText().toString(),
                 newUserSurname.getText().toString(),
                 newUserBirthday.getText().toString(),
                 newUserEmail.getText().toString(),
-                newUserPassword.getText().toString()))){
+                newUserPassword.getText().toString()));
+
+        if(result){
             Toast.makeText(this, "Lietotājs pievienots", Toast.LENGTH_LONG).show();
         }
         else
         {
             Toast.makeText(this, "Lietotājs nav pievienots", Toast.LENGTH_LONG).show();
         }
+
+        newUserFirstName.setText("");
+        newUserSurname.setText("");
+        newUserBirthday.setText("");
+        newUserEmail.setText("");
+        newUserPassword.setText("");
     }
 }

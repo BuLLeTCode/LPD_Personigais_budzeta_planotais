@@ -2,6 +2,7 @@ package com.raivis.develops.lpd_personigais_budzeta_planotais;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class IncomeAddActivity extends AppCompatActivity {
 

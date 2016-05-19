@@ -22,6 +22,6 @@ public class OutcomeTypesActivity extends AppCompatActivity {
 
     public void pressOnManual(View view) {
         startActivity(IntentGenerator.returnNewIntentForActivity(this,
-                IncomeAddActivity.class));
+                ManualOutcomeActivity.class));
     }
 }

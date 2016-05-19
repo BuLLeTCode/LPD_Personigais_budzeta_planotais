@@ -86,6 +86,7 @@
         android:layout_below="@+id/outcomeDateInput"
         android:layout_marginTop="20dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="pressOnAddOutcome"/>
 
 </RelativeLayout>

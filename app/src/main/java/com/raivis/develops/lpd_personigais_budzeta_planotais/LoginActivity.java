@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
 
     //User try to login
     public void pressOnLogin(View view) {
-        //TODO make with db - for now hardcode login! :D
+
 //        if(userMail.getText().toString().equals("user@user.lv") &&
 //                userPass.getText().toString().equals("pass")){
         if(db.verification(userMail.getText().toString(), userPass.getText().toString())){
