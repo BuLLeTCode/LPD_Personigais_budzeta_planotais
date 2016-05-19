@@ -9,10 +9,19 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.raivis.develops.lpd_personigais_budzeta_planotais.ViewMoneyFlowActivity">
 
-    <TextView
+    <Spinner
+        android:id="@+id/displayOptionsSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown" />
+
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kā attēlot, kas to lai zina! :D"
-        android:textSize="25sp"/>
-    
+        android:id="@+id/moneyFlowListView"
+        android:layout_below="@+id/displayOptionsSpinner"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

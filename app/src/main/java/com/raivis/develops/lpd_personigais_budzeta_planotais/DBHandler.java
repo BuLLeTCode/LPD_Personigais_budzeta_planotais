@@ -9,6 +9,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by raivis on 18/05/2016.
  */
@@ -165,5 +168,49 @@ public class DBHandler extends SQLiteOpenHelper {
         c.close();
 
         return exists;
+    }
+
+    //Return all Outcomes
+    public List<Outcome> getAllOutcomes() {
+        List<Outcome> outcomeList = new ArrayList<Outcome>();
+        // Select All Query
+        String selectQuery = "SELECT * FROM " + TABLE_OUTCOMES;
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+//                TODO maybe add ID field? - For better deleting and so on!
+                Outcome outcome = new Outcome(cursor.getString(1), cursor.getDouble(2),
+                        cursor.getString(3), cursor.getString(4));
+                //Objects store in list
+                outcomeList.add(outcome);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+    // return contact list
+        return outcomeList;
+    }
+
+    public List<Income> getAllIncomes()
+    {
+        List<Income> incomeList = new ArrayList<Income>();
+        // Select All Query
+        String selectQuery = "SELECT * FROM " + TABLE_INCOMES;
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+//                TODO maybe add ID field? - For better deleting and so on!
+                Income outcome = new Income(cursor.getString(1), cursor.getDouble(2),
+                        cursor.getString(3), cursor.getString(4), cursor.getString(5));
+                //Objects store in list
+                incomeList.add(outcome);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        // return contact list
+        return incomeList;
     }
 }
