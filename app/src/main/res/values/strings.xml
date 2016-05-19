@@ -22,4 +22,6 @@
     <string name="avots">Avots</string>
     <string name="pievienot">Pievienot</string>
     <string name="izlogoties">Izlogoties</string>
+    <string name="income_sucess">Ienākums pievienots</string>
+    <string name="income_not_sucess">Ienākums nav pievienots</string>
 </resources>

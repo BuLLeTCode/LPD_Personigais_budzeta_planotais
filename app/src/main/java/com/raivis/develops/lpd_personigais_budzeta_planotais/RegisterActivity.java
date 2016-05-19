@@ -35,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void pressOnConfirmRegistration(View view) {
 //        TODO Check if user have fill all fields
-        boolean result = db.addNewUser(new User(0, newUserFirstName.getText().toString(),
+        boolean result = db.addNewUser(new User(newUserFirstName.getText().toString(),
                 newUserSurname.getText().toString(),
                 newUserBirthday.getText().toString(),
                 newUserEmail.getText().toString(),

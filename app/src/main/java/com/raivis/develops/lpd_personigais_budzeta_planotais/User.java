@@ -7,7 +7,6 @@ import java.text.SimpleDateFormat;
  */
 //This class will represent users
 public class User {
-    private int id;
     private String firstName;
     private String lastName;
     private String birthDay;
@@ -15,9 +14,8 @@ public class User {
     private String password;
 
     //More advance constructor - all fields for registring new user obligatory
-    public User(int _id, String fName, String lName, String bDay, String email, String pass)
+    public User(String fName, String lName, String bDay, String email, String pass)
     {
-        this.id = _id;
         this.firstName = fName;
         this.lastName = lName;
         this.birthDay = bDay;
@@ -27,7 +25,7 @@ public class User {
 
     public String[] getUserInfo()
     {
-        return new String[]{Integer.toString(this.id),this.firstName,this.lastName,
+        return new String[]{this.firstName,this.lastName,
                 this.birthDay, this.eMail, this.password};
     }
 }
