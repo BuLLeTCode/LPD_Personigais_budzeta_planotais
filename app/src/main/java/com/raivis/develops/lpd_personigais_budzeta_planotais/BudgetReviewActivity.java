@@ -12,7 +12,7 @@ public class BudgetReviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_budget_review);
     }
 
-    public void pressOnMoneyButton(View view) {
+    public void pressOnMoneyVisualizationButton(View view) {
         startActivity(IntentGenerator.returnNewIntentForActivity(this,
                 VisualitationActivity.class));
     }

@@ -25,4 +25,5 @@
     <string name="izlogoties">Izlogoties</string>
     <string name="income_sucess">Ienākums pievienots</string>
     <string name="income_not_sucess">Ienākums nav pievienots</string>
+    <string name="vizualizacija_ienakumi_izdevumi">Izdevumu / Ienākumu vizualizācija</string>
 </resources>

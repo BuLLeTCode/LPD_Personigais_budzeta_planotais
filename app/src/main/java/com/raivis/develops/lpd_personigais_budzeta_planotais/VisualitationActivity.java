@@ -13,11 +13,14 @@ import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.xy.XYPlot;
 import com.androidplot.xy.XYSeries;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class VisualitationActivity extends AppCompatActivity {
 
     private XYPlot plot;
+    private DBHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,18 +36,35 @@ public class VisualitationActivity extends AppCompatActivity {
         getWindow().setLayout((int)(width*.8f), (int)(heigh*.6f));
 
         plot = (XYPlot) findViewById(R.id.plot);
+        db = new DBHandler(this);
 
         // create a couple arrays of y-values to plot:
-        Number[] series1Numbers = {1, 4, 2, 8, 4, 16, 8, 32, 16, 64};
-        Number[] series2Numbers = {5, 2, 10, 5, 20, 10, 40, 20, 80, 40};
+        List<Outcome> userOutcomes = db.getAllOutcomes();
+        List<Double> outcomeNumbers = new ArrayList<Double>();
+
+        for(Outcome out : userOutcomes) {
+            String [] outInfo = out.getOutcomeInfo();
+            outcomeNumbers.add(Double.parseDouble(outInfo[1]));
+        }
+
+        List<Income> userIncomes = db.getAllIncomes();
+        List<Double> incomeNumbers = new ArrayList<Double>();
+
+        for(Income in : userIncomes)
+        {
+            String[] inInfo = in.getIncomeInfo();
+            incomeNumbers.add(Double.parseDouble(inInfo[1]));
+        }
+
+//        Number[] series1Numbers = {1, 4, 2, 8, 4, 16, 8, 32, 16, 64};
 
         // turn the above arrays into XYSeries':
         // (Y_VALS_ONLY means use the element index as the x value)
-        XYSeries series1 = new SimpleXYSeries(Arrays.asList(series1Numbers),
-                SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series1");
+        XYSeries series1 = new SimpleXYSeries(outcomeNumbers,
+                SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Izdevumi");
 
-        XYSeries series2 = new SimpleXYSeries(Arrays.asList(series2Numbers),
-                SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series2");
+        XYSeries series2 = new SimpleXYSeries(incomeNumbers,
+                SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Ienākumi");
 
         // create formatters to use for drawing a series using LineAndPointRenderer
         // and configure them from xml:
@@ -57,22 +77,15 @@ public class VisualitationActivity extends AppCompatActivity {
         series2Format.setPointLabelFormatter(new PointLabelFormatter());
         series2Format.configure(getApplicationContext(),
                 R.xml.line_point_formatter_with_labels_2);
+        //Min 3 points for Interpolation
+        if(incomeNumbers.size() >= 3 && outcomeNumbers.size() >= 3)
+        {
+            series1Format.setInterpolationParams(
+                    new CatmullRomInterpolator.Params(10, CatmullRomInterpolator.Type.Centripetal));
 
-        // add an "dash" effect to the series2 line:
-        series2Format.getLinePaint().setPathEffect(
-                new DashPathEffect(new float[] {
-
-                        // always use DP when specifying pixel sizes, to keep things consistent across devices:
-                        PixelUtils.dpToPix(20),
-                        PixelUtils.dpToPix(15)}, 0));
-
-        // just for fun, add some smoothing to the lines:
-        // see: http://androidplot.com/smooth-curves-and-androidplot/
-        series1Format.setInterpolationParams(
-                new CatmullRomInterpolator.Params(10, CatmullRomInterpolator.Type.Centripetal));
-
-        series2Format.setInterpolationParams(
-                new CatmullRomInterpolator.Params(10, CatmullRomInterpolator.Type.Centripetal));
+            series2Format.setInterpolationParams(
+                    new CatmullRomInterpolator.Params(10, CatmullRomInterpolator.Type.Centripetal));
+        }
 
         // add a new series' to the xyplot:
         plot.addSeries(series1, series1Format);
