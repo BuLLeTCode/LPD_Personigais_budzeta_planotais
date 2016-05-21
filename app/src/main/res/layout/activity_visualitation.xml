@@ -7,12 +7,6 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.raivis.develops.lpd_personigais_budzeta_planotais.BudgetReviewActivity">
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Money"
-        android:onClick="pressOnMoneyButton"/>
+    tools:context="com.raivis.develops.lpd_personigais_budzeta_planotais.VisualitationActivity">
 
 </RelativeLayout>

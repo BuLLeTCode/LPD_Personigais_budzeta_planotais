@@ -40,6 +40,10 @@
         <activity
             android:name=".BudgetReviewActivity"
             android:label="@string/app_name9" />
+        <activity
+            android:name=".VisualitationActivity"
+            android:label="@string/app_name10"
+            android:theme="@style/AppTheme.CustomActivityPopupTheme"/>
     </application>
 
 </manifest>
