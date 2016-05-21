@@ -138,8 +138,8 @@
         android:onClick="pressOnConfirmRegistration"/>
 
     <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/imageButton"
         android:background="@mipmap/date_picker"
         android:layout_alignTop="@+id/birthDateTextView"

@@ -1,5 +1,6 @@
 package com.raivis.develops.lpd_personigais_budzeta_planotais;
 
+import android.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,9 +25,6 @@ public class RegisterActivity extends AppCompatActivity {
     EditText newUserEmail;
     EditText newUserPassword;
 
-    private DatePickerDialog birthDayDialog;
-    private SimpleDateFormat dateFormatter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +41,6 @@ public class RegisterActivity extends AppCompatActivity {
             newUserBirthday.setFocusable(false);//Good way to make readonly fields
 
         }
-        dateFormatter = new SimpleDateFormat("dd.mm.yyyy", Locale.getDefault());
 
         newUserEmail = (EditText)findViewById(R.id.emailInput);
         newUserPassword = (EditText)findViewById(R.id.passwordInput);
@@ -73,6 +70,8 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void pressOnDatePicker(View view) {
-//        TODO make dialog for date picker. Check android.developer API guide.
+        //Show Date picker fragment
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getFragmentManager(), "datePicker");
     }
 }
