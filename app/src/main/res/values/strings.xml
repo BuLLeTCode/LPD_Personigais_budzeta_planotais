@@ -26,4 +26,6 @@
     <string name="income_sucess">Ienākums pievienots</string>
     <string name="income_not_sucess">Ienākums nav pievienots</string>
     <string name="vizualizacija_ienakumi_izdevumi">Izdevumu / Ienākumu vizualizācija</string>
+    <string name="datepicker_icone">DatePickerDialog icone</string>
+    <string name="field_is_empty">Lauks nav aizpildīts</string>
 </resources>

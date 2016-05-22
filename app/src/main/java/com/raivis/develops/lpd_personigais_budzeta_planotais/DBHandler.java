@@ -4,15 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/*
  * Created by raivis on 18/05/2016.
  */
 public class DBHandler extends SQLiteOpenHelper {
@@ -172,7 +169,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     //Return all Outcomes
     public List<Outcome> getAllOutcomes() {
-        List<Outcome> outcomeList = new ArrayList<Outcome>();
+        List<Outcome> outcomeList = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_OUTCOMES;
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -194,7 +191,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public List<Income> getAllIncomes()
     {
-        List<Income> incomeList = new ArrayList<Income>();
+        List<Income> incomeList = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_INCOMES;
         Cursor cursor = db.rawQuery(selectQuery, null);

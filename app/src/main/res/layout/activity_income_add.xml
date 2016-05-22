@@ -112,4 +112,15 @@
         android:layout_alignParentEnd="true"
         android:onClick="pressOnIncomeAdd"/>
 
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/ibDatePicker"
+        android:background="@mipmap/date_picker"
+        android:layout_alignTop="@+id/incomeDateTextView"
+        android:layout_alignRight="@+id/incomeDateInput"
+        android:layout_alignEnd="@+id/incomeDateInput"
+        android:onClick="pressOnDateSelect"
+        android:contentDescription="@string/datepicker_icone"/>
+
 </RelativeLayout>

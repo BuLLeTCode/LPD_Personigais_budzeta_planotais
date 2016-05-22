@@ -4,6 +4,8 @@ import android.graphics.DashPathEffect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.androidplot.util.PixelUtils;
 import com.androidplot.xy.CatmullRomInterpolator;
@@ -25,6 +27,7 @@ public class VisualitationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.simple_xy_plot_example);
 
         DisplayMetrics dm = new DisplayMetrics();

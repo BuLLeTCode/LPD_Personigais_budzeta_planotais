@@ -12,9 +12,10 @@
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
-    <style name="AppTheme.CustomActivityPopupTheme">
+    <style name="AppTheme.CustomActivityPopupTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowNoTitle">true</item><!-- Why this isn`t working? -->
     </style>
 
 </resources>

@@ -1,6 +1,6 @@
 package com.raivis.develops.lpd_personigais_budzeta_planotais;
 
-/**
+/*
  * Created by raivis on 19/05/2016.
  */
 public class Income {

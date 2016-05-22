@@ -145,5 +145,6 @@
         android:layout_alignTop="@+id/birthDateTextView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="pressOnDatePicker"/>
+        android:onClick="pressOnDatePicker"
+        android:contentDescription="@string/datepicker_icone"/>
 </RelativeLayout>

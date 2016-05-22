@@ -2,14 +2,12 @@ package com.raivis.develops.lpd_personigais_budzeta_planotais;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -34,7 +32,7 @@ public class ViewMoneyFlowActivity extends AppCompatActivity {
 
         db = new DBHandler(this);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_dropdown_item, options);
 
         dropdown.setAdapter(adapter);
@@ -105,7 +103,7 @@ public class ViewMoneyFlowActivity extends AppCompatActivity {
                 break;
         }
 
-        final ListAdapter theAdapter = new ArrayAdapter<String>(this,
+        final ListAdapter theAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_expandable_list_item_1,displayInformation);
 
         listView.setAdapter(theAdapter);

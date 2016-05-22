@@ -3,6 +3,7 @@ package com.raivis.develops.lpd_personigais_budzeta_planotais;
 import android.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.app.DatePickerDialog;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -37,9 +39,9 @@ public class RegisterActivity extends AppCompatActivity {
         newUserSurname = (EditText)findViewById(R.id.surnameInput);
 //        TODO for birthday need DatePickerDialog!
         newUserBirthday = (EditText)findViewById(R.id.birthDateInput);
+        //Good way to make readonly fields
         if(newUserBirthday != null){
-            newUserBirthday.setFocusable(false);//Good way to make readonly fields
-
+            newUserBirthday.setFocusable(false);
         }
 
         newUserEmail = (EditText)findViewById(R.id.emailInput);
@@ -47,7 +49,16 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void pressOnConfirmRegistration(View view) {
-//        TODO Check if user have fill all fields
+
+        //Checking if all fieds are fill - maybe only one error message?
+        Integer[] activityFields = {R.id.nameInput, R.id.surnameInput, R.id.birthDateInput,
+        R.id.emailInput, R.id.passwordInput};
+        //If return true, problem with field. :(
+        if(FieldValidation.CheckFieldValidation(activityFields, this))
+        {
+            return;
+        }
+
         boolean result = db.addNewUser(new User(newUserFirstName.getText().toString(),
                 newUserSurname.getText().toString(),
                 newUserBirthday.getText().toString(),
@@ -72,6 +83,11 @@ public class RegisterActivity extends AppCompatActivity {
     public void pressOnDatePicker(View view) {
         //Show Date picker fragment
         DialogFragment newFragment = new DatePickerFragment();
+
+        Bundle args = new Bundle();
+        args.putInt("EditTextId", R.id.birthDateInput);
+        newFragment.setArguments(args);
+
         newFragment.show(getFragmentManager(), "datePicker");
     }
 }

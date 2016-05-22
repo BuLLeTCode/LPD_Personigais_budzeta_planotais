@@ -1,8 +1,6 @@
 package com.raivis.develops.lpd_personigais_budzeta_planotais;
 
-import java.text.SimpleDateFormat;
-
-/**
+/*
  * Created by raivis on 18/05/2016.
  */
 //This class will represent users

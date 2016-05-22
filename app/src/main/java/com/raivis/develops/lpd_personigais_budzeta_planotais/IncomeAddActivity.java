@@ -1,5 +1,6 @@
 package com.raivis.develops.lpd_personigais_budzeta_planotais;
 
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -36,11 +37,22 @@ public class IncomeAddActivity extends AppCompatActivity {
         incomeName = (EditText)findViewById(R.id.incomeNameInput);
         incomeAmount = (EditText)findViewById(R.id.incomeCapacityInput);
         incomeDate = (EditText)findViewById(R.id.incomeDateInput);
+        //Set date readOnly
+        if(incomeDate != null){
+            incomeDate.setFocusable(false);
+        }
+
         incomeSource = (EditText)findViewById(R.id.incomeSourceInput);
     }
 
     public void pressOnIncomeAdd(View view) {
-//        TODO Check if user have fill all fields
+        Integer[] activityFields = {R.id.incomeNameInput, R.id.incomeCapacityInput,
+                R.id.incomeDateInput, R.id.incomeSourceInput};
+        //If return true, problem with field. :(
+        if(FieldValidation.CheckFieldValidation(activityFields, this))
+        {
+            return;
+        }
 
         boolean result = db.addNewIncome(new Income(incomeName.getText().toString(),
                 Double.parseDouble(incomeAmount.getText().toString()),
@@ -59,5 +71,15 @@ public class IncomeAddActivity extends AppCompatActivity {
         incomeAmount.setText("");
         incomeDate.setText("");
         incomeSource.setText("");
+    }
+
+    public void pressOnDateSelect(View view) {
+        DialogFragment newFragment = new DatePickerFragment();
+
+        Bundle args = new Bundle();
+        args.putInt("EditTextId", R.id.incomeDateInput);
+        newFragment.setArguments(args);
+
+        newFragment.show(getFragmentManager(), "datePicker");
     }
 }

@@ -89,4 +89,16 @@
         android:layout_alignParentEnd="true"
         android:onClick="pressOnAddOutcome"/>
 
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/ibDatePickerOutcome"
+        android:background="@mipmap/date_picker"
+        android:onClick="pressOnOutcomeDate"
+        android:layout_alignTop="@+id/outcomeDateTextView"
+        android:layout_alignRight="@+id/outcomeDateInput"
+        android:layout_alignEnd="@+id/outcomeDateInput"
+        android:contentDescription="@string/datepicker_icone"/>
+
+
 </RelativeLayout>

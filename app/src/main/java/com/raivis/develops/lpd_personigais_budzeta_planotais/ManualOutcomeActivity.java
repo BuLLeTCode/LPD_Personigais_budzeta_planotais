@@ -1,5 +1,6 @@
 package com.raivis.develops.lpd_personigais_budzeta_planotais;
 
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -34,11 +35,23 @@ public class ManualOutcomeActivity extends AppCompatActivity {
         outcomeName = (EditText)findViewById(R.id.outcomeNameInput);
         outcomeAmount = (EditText)findViewById(R.id.outcomeCapacityInput);
         outcomeDate = (EditText)findViewById(R.id.outcomeDateInput);
+        //Readonly
+        if(outcomeDate != null)
+        {
+            outcomeDate.setFocusable(false);
+        }
     }
 
     public void pressOnAddOutcome(View view) {
 
-//        TODO Check if user have fill all fields
+        Integer[] activityFields = {R.id.outcomeNameInput, R.id.outcomeCapacityInput,
+                R.id.outcomeDateInput};
+        //If return true, problem with field. :(
+        if(FieldValidation.CheckFieldValidation(activityFields, this))
+        {
+            return;
+        }
+
         boolean result = db.addNewOutcome(new Outcome(outcomeName.getText().toString(),
                 Double.parseDouble(outcomeAmount.getText().toString()),
                 outcomeDate.getText().toString(), preferences.getString("userEmail","")));
@@ -54,5 +67,15 @@ public class ManualOutcomeActivity extends AppCompatActivity {
         outcomeName.setText("");
         outcomeAmount.setText("");
         outcomeDate.setText("");
+    }
+
+    public void pressOnOutcomeDate(View view) {
+        DialogFragment newFragment = new DatePickerFragment();
+
+        Bundle args = new Bundle();
+        args.putInt("EditTextId", R.id.outcomeDateInput);
+        newFragment.setArguments(args);
+
+        newFragment.show(getFragmentManager(), "datePicker");
     }
 }
