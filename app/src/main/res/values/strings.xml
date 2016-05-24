@@ -28,4 +28,6 @@
     <string name="vizualizacija_ienakumi_izdevumi">Izdevumu / Ienākumu vizualizācija</string>
     <string name="datepicker_icone">DatePickerDialog icone</string>
     <string name="field_is_empty">Lauks nav aizpildīts</string>
+    <string name="nav_izdevumu">Nav pievienots neviens izdevums</string>
+    <string name="nav_ienakumu">Nav pievienots neviens ienākums</string>
 </resources>

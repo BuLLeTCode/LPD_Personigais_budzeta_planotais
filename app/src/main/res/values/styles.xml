@@ -18,4 +18,10 @@
         <item name="android:windowNoTitle">true</item><!-- Why this isn`t working? -->
     </style>
 
+    <style name="Divider">
+        <item name="android:layout_width">1dip</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">#00bcd5</item>
+    </style>
+
 </resources>
