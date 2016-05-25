@@ -56,7 +56,7 @@ public class DatePickerFragment extends DialogFragment
             converteDay += "0";
         }
 
-        converteMonth += Integer.toString(month);
+        converteMonth += Integer.toString(month+1);//Why need to add +1?
         converteDay += Integer.toString(day);
 
         return converteDay + "." + converteMonth + "." + Integer.toString(year);

@@ -19,6 +19,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Locale;
 
 public class ViewMoneyFlowActivity extends AppCompatActivity {
 
@@ -114,14 +115,17 @@ public class ViewMoneyFlowActivity extends AppCompatActivity {
 //                    ++activeIndex;
                 }
 
-                //Display total sum at end
-                //displayInformation[activeIndex] = "Kopā izdevumi: " + totalSum + " €";
-                AddNewTableRow("", Double.toString(totalSum), "");
-
                 if(outcomes.size() == 0)
                 {
 //                    displayInformation = new String[]{"Nav pievienots neviens izdevums"};
                     AddNewTableRow(getString(R.string.nav_izdevumu), "", "");
+                }
+                else
+                {
+                    //Display total sum at end
+                    //displayInformation[activeIndex] = "Kopā izdevumi: " + totalSum + " €";
+                    AddNewTableRow("", String.format(Locale.ENGLISH, "%.2f",
+                            totalSum), "");//String.format is better solution
                 }
 
                 break;
@@ -139,14 +143,17 @@ public class ViewMoneyFlowActivity extends AppCompatActivity {
 //                    ++activeIndex;
                 }
 
-                //Display total sum at end
-//                displayInformation[activeIndex] = "Kopā ienākumi: " + totalSum + " €";
-                AddNewTableRow("", Double.toString(totalSum), "");
-
                 if(incomes.size() == 0)
                 {
 //                    displayInformation = new String[]{"Nav pievienots neviens ienākums"};
                     AddNewTableRow(getString(R.string.nav_ienakumu), "", "");
+                }
+                else
+                {
+                    //Display total sum at end
+//                displayInformation[activeIndex] = "Kopā ienākumi: " + totalSum + " €";
+                    AddNewTableRow("", String.format(Locale.ENGLISH, "%.2f",
+                            totalSum), "");//String.format is better solution
                 }
 
                 break;
@@ -167,7 +174,13 @@ public class ViewMoneyFlowActivity extends AppCompatActivity {
         title1.setText(firstColumn);
 
         TextView title2 = new TextView(this);
-        title2.setText(secondColumn + " €");
+
+        if(!secondColumn.equals(""))
+        {
+            title2.setText(secondColumn + " €");
+
+        }
+
         if(firstColumn.equals("") && thirdColumn.equals(""))
         {
             title2.setTextColor(Color.RED);
